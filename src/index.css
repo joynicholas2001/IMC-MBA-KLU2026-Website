@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* PDF Brochure Extracted Color Palette */
+  --color-primary: #0c2340;          /* Deep academic navy from brochure header, footer & headings */
+  --color-primary-light: #16365c;    /* Mid navy for card hover & secondary elements */
+  --color-secondary: #007a87;        /* Signature teal of 'NEW HORIZONS FOR A SUSTAINABLE FUTURE' */
+  --color-secondary-dark: #005d68;   /* Dark teal for button active & accents */
+  --color-secondary-light: #009aa6;  /* Bright teal for highlights */
+  --color-secondary-surface: #f0f8f9;/* Light teal tint for cards and backgrounds */
+  --color-accent: #e59b2c;           /* Warm gold from University emblem & committee diamonds */
+  --color-accent-dark: #b45309;      /* Dark gold for accessible text */
+  --color-background: #f8fafb;       /* Cool academic off-white background */
+  --color-surface: #ffffff;          /* Pure white card surface */
+  --color-heading: #0c2340;          /* Navy for prominent titles and headings */
+  --color-text: #334155;             /* Readable dark slate for paragraph body */
+  --color-text-muted: #64748b;       /* Slate muted text */
+  --color-border: #e2e8f0;           /* Soft border gray */
+  --color-border-teal: #ccedf0;      /* Teal tinted border */
+  
+  /* Four Pillars of IMC 2026 Theme (PDF Page 1 & 6) */
+  --pillar-innovation: #e67e22;      /* Warm Amber Orange */
+  --pillar-business: #1e6091;        /* Academic Royal Blue */
+  --pillar-technology: #0d9488;      /* Clean Technology Teal */
+  --pillar-society: #7c3aed;         /* Violet Purple */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #007a87;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #005d68;
+}
+
+/* Glassmorphism & UI Accents */
+.glass-header {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.pdf-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(12, 35, 64, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pdf-card:hover {
+  border-color: #007a87;
+  box-shadow: 0 12px 30px -4px rgba(0, 122, 135, 0.12);
+  transform: translateY(-2px);
+}
+
+.pdf-btn-primary {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.pdf-btn-primary:hover {
+  background-color: var(--color-secondary-dark);
+  box-shadow: 0 4px 14px rgba(0, 122, 135, 0.35);
+  transform: translateY(-1px);
+}
+
+.pdf-btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  transition: all 0.2s ease-in-out;
+}
+.pdf-btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(12, 35, 64, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Accessibility Focus States */
+*:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
